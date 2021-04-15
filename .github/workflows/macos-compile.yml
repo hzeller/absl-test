@@ -1,0 +1,17 @@
+name: macos-compile
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  MacOsBuild:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Build
+      run: |
+        bazel build ...
